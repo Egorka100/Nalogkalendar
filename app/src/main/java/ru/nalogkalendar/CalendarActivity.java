@@ -41,14 +41,14 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
         setupBottomNavigationView();
 
-        final SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+        final SimpleDateFormat formatter = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH); //January 1, 2017
 
         caldroidFragment = new CaldroidFragment();
         if (savedInstanceState != null) {
             caldroidFragment.restoreStatesFromKey(savedInstanceState,
                     "CALDROID_SAVED_STATE");
         }
-        // If activity is created from fresh
+        //Если создаётся первый раз
         else {
             Bundle args = new Bundle();
             Calendar cal = Calendar.getInstance();
@@ -62,7 +62,7 @@ public class CalendarActivity extends AppCompatActivity {
         setCustomResourceForDates();
 
 
-        // Attach to the activity
+
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.calendar, caldroidFragment);
         t.commit();

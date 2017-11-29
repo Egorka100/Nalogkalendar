@@ -18,7 +18,9 @@ public class AboutTaxeActivity extends AppCompatActivity implements View.OnClick
         aboutTaxeWV = findViewById(R.id.aboutTaxeInfo);
 
         String abouttaxeStr =
-                "<html>" + getIntent().getStringExtra("cdata") + "</html>";
+                "<html>"
+                        + getIntent().getStringExtra("cdata")
+                        + "</html>";
         aboutTaxeWV.loadDataWithBaseURL(null, abouttaxeStr, "text/html", "en_US", null);
     }
 
