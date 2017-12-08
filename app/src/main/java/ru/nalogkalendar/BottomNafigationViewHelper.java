@@ -14,6 +14,7 @@ public class BottomNafigationViewHelper {
     public static void setupBottomNavigationView(BottomNavigationView bottomNavigationView) {
 
     }
+
     public static void enableNavigation(final Context context, BottomNavigationView view) {
         view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
