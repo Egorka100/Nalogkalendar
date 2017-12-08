@@ -9,12 +9,11 @@ import android.view.MenuItem;
 /**
  * Created by denis on 28.11.2017.
  */
-
+//Меню навигации
 public class BottomNafigationViewHelper {
     public static void setupBottomNavigationView(BottomNavigationView bottomNavigationView) {
 
     }
-
     public static void enableNavigation(final Context context, BottomNavigationView view) {
         view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

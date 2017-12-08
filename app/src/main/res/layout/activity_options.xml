@@ -7,11 +7,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/calendar"
+        <Switch
+            android:id="@+id/statusSw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:text="Включить оповещения" />
+
+        <TextView
+            android:id="@+id/labelfortime"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/statusSw"
+            android:layout_marginTop="20dp"
+            android:text="Выберите время для напоминания" />
+
+        <EditText
+            android:id="@+id/timeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/labelfortime"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:longClickable="false"
+            android:textAlignment="center"
+            android:textSize="35sp" />
+
+        <Button
+            android:id="@+id/savesettingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/timeTv"
+            android:layout_marginTop="20dp"
+            android:text="Сохранить" />
 
         <include layout="@layout/layout_bottom_navigation_view" />
     </RelativeLayout>

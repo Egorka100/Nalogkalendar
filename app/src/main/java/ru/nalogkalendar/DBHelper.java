@@ -14,7 +14,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
        // sqLiteDatabase.execSQL("create table Calendar("+"id integer primary key autoincrement,"+"year text,"+"month text,"+"day text,"+"nametaxe text,"+"whopay text"+");");
-        sqLiteDatabase.execSQL("create table calendarhtml("+"id integer primary key autoincrement,"+"date text,"+"cdata text"+");");
+        sqLiteDatabase.execSQL("create table calendarhtml("+"id integer primary key autoincrement,"+"date text,"+"cdata text"+");");//xml
+        sqLiteDatabase.execSQL("create table notifsettings("+"id integer primary key autoincrement,"+"status int,"+"hour int,"+"minute int"+");");//настройки
     }
 
     @Override

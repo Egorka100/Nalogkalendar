@@ -11,7 +11,6 @@ import android.webkit.WebView;
 
 public class AboutTaxeActivity extends AppCompatActivity implements View.OnClickListener {
     private WebView aboutTaxeWV;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abouttaxe);
@@ -21,9 +20,8 @@ public class AboutTaxeActivity extends AppCompatActivity implements View.OnClick
                 "<html>"
                         + getIntent().getStringExtra("cdata")
                         + "</html>";
-        aboutTaxeWV.loadDataWithBaseURL(null, abouttaxeStr, "text/html", "en_US", null);
+        aboutTaxeWV.loadDataWithBaseURL(null, abouttaxeStr, "text/html", "en_US", null); //Заполняем WebView
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

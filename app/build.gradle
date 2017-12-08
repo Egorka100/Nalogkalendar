@@ -44,10 +44,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-    compile 'com.google.android.gms:play-services-vision:9.4.0+'
+    compile 'com.google.android.gms:play-services-vision:11.0.4+'
     compile 'com.roomorama:caldroid:3.0.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.8.0@aar') {
         transitive = true;
     }
-
 }

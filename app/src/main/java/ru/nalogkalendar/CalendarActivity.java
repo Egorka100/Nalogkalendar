@@ -29,7 +29,6 @@ import java.util.Locale;
 
 public class CalendarActivity extends AppCompatActivity {
     private CaldroidFragment caldroidFragment;
-    private CaldroidFragment dialogCaldroidFragment;
     private Context mContext = CalendarActivity.this;
     private static final int ACTIVITY_NUM = 1;
     String strforWebView;
@@ -62,7 +61,6 @@ public class CalendarActivity extends AppCompatActivity {
         setCustomResourceForDates();
 
 
-
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         t.replace(R.id.calendar, caldroidFragment);
         t.commit();
@@ -70,14 +68,11 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void onSelectDate(Date date, View view) {
-                String webcontent;
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-
                 String[] columns = {"cdata"};
                 String data = formatter.format(date).toLowerCase();
                 String selection = "date = ?";
                 String[] selectionArgs = new String[]{data};
-                String having;
                 Cursor c = db.query("calendarhtml", columns, selection, selectionArgs, null, null, null);
                 if (c != null) {
                     if (c.moveToFirst()) {
@@ -125,6 +120,7 @@ public class CalendarActivity extends AppCompatActivity {
         caldroidFragment.setCaldroidListener(listener);
     }
 
+    //Красим календарь
     private void setCustomResourceForDates() {
         String dataStr;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -133,11 +129,8 @@ public class CalendarActivity extends AppCompatActivity {
             int dateColIndex = c.getColumnIndex("date");
 
             do {
-
                 SimpleDateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
                 dataStr = c.getString(dateColIndex);
-                // Min date is last 7 days
-                //cal.add(Calendar.DATE, -7);
                 Date blueDate = null;
                 try {
                     blueDate = format.parse(dataStr);
@@ -153,7 +146,6 @@ public class CalendarActivity extends AppCompatActivity {
             while (c.moveToNext());
         }
         c.close();
-
     }
 
     @Override
@@ -165,10 +157,6 @@ public class CalendarActivity extends AppCompatActivity {
             caldroidFragment.saveStatesToKey(outState, "CALDROID_SAVED_STATE");
         }
 
-        if (dialogCaldroidFragment != null) {
-            dialogCaldroidFragment.saveStatesToKey(outState,
-                    "DIALOG_CALDROID_SAVED_STATE");
-        }
     }
 
     private void setupBottomNavigationView() {
@@ -178,4 +166,5 @@ public class CalendarActivity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
 }

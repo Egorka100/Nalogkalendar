@@ -3,6 +3,8 @@
     package="ru.nalogkalendar">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".AutoStart">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -20,14 +28,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CalendarActivity"></activity>
-        <activity android:name=".OptionsActivity"></activity>
-        <activity android:name=".AboutTaxeActivity"></activity>
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".OptionsActivity" />
+        <activity android:name=".AboutTaxeActivity" />
 
         <service
-            android:name=".nalogservice"
-            android:enabled="true"
-            android:exported="true"></service>
+            android:name=".NotifyService"
+            android:enabled="true" />
+
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="43c252aa0a12020db89abdd5b0ec688dd561d89d" />
